@@ -1,0 +1,7 @@
+{
+    "model_name": "grammarly/coedit-large",
+    "gpu": false,
+    "cors_origins": ["http://localhost", "http://localhost:10000"],
+    "sample_text": "the boys is playing",
+    "prompt": "Fix grammatical errors in this sentence:"
+}
