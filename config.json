@@ -1,5 +1,7 @@
 {
-    "model_name": "grammarly/coedit-large",
+    "model_l": "grammarly/coedit-large",
+    "model_xl": "grammarly/coedit-xl",
+    "model_xxl": "grammarly/coedit-xxl",
     "gpu": false,
     "cors_origins": ["http://localhost", "http://localhost:10000"],
     "sample_text": "the boys is playing",

@@ -1,4 +1,4 @@
-# import the libraries
+# 2UCYD5FB0zA20cZ4jmgoITSvXnT_3n24xQHA7GmpXkjpxMEFS
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -10,7 +10,7 @@ with open("config.json", "r", encoding="utf8") as config_file:
     config = json.load(config_file)
 
 
-tokenizer = AutoTokenizer.from_pretrained(config["model_name"])
+tokenizer = AutoTokenizer.from_pretrained(config["model_l"])
 # model = T5ForConditionalGeneration.from_pretrained(config["model_name"], device_map = "auto") if config["gpu"] else T5ForConditionalGeneration.from_pretrained(config["model_name"])
 
 app = FastAPI()
@@ -45,7 +45,6 @@ class InputData(BaseModel):
 async def get_predictions(prompt, text):
     text = f"{prompt} {text}"
     input_ids = tokenizer(text, return_tensors="pt").to("cuda").input_ids if config["gpu"] else tokenizer(text, return_tensors="pt").input_ids
-    # input_ids = tokenizer(text, return_tensors="pt").to("cuda").input_ids
     length = input_ids.shape[1] + 10
     if length >= 512:
         length = 512
